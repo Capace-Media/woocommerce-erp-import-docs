@@ -16,10 +16,10 @@ Pyramid ERP
      │
      │ (exports XML + images)
      ▼
-FTP Server (ftpcluster.loopia.se)
+FTP/SFTP Server (hosting provider)
      │
-     ├── /cdn.capace.dk/public_html/xml/woocommerce.xml
-     └── /cdn.capace.dk/public_html/img/*.jpg
+     ├── /path/to/xml/woocommerce.xml
+     └── /path/to/img/*.jpg
      │
      ▼
 WP All Import (WordPress)
@@ -96,14 +96,20 @@ Always verify that the XML export from the ERP contains the expected products be
 
 ### Example accounts configured on the server:
 
-| User               | Access description            |
-| ------------------ | ----------------------------- |
-| `erp_ftp_webroot`  | Web root for XML + images     |
-| `erp_ftp_xml_only` | XML directory only            |
-| `erp_ftp_admin`    | Full account (administrative) |
+| User                         | Access description            |
+| ---------------------------- | ----------------------------- |
+| `example_erp_ftp_webroot`   | Web root for XML + images     |
+| `example_erp_ftp_xml_only`  | XML directory only            |
+| `example_erp_ftp_admin`     | Full account (administrative) |
 
-These example accounts illustrate typical access levels used by the ERP export.  
-**Actual usernames, passwords, and hosting control‑panel details should be stored only in internal, private documentation.**
+These example accounts illustrate typical access levels used by the ERP export and are **fictional**.  
+**Actual FTP/SFTP hostnames, usernames, passwords, and hosting control‑panel details are stored only in internal, private documentation and never committed to git.**
+
+## Security Practices
+
+- **No credentials in this repository**: FTP/SFTP usernames, passwords, and hosting control‑panel logins are kept only in our internal password manager.
+- **Non‑public infrastructure details**: Exact production hostnames, ports, and directory paths are documented in private runbooks, not here.
+- **Secure transport recommended**: In production, use SFTP/FTPS or another encrypted channel for ERP file transfers instead of plain FTP whenever possible.
 
 ## Important Notes
 
