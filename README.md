@@ -131,6 +131,38 @@ Even though the data source is shared:
 - Media libraries are separate
 - Import configurations are separate
 
+## Category Mapping
+
+Products are categorized in WooCommerce based on type codes from the XML feed.
+
+### How It Works
+
+WP All Import maps the numeric type codes from the ERP export to human-readable 
+category names in WooCommerce. This mapping is configured directly in the import 
+template on each site.
+
+**Example:**
+| Code | Category |
+|------|----------|
+| 10001 | Herr |
+| 10002 | Dam |
+| 10003 | Barn |
+| 531 | Kängor |
+| 651 | Magväska |
+| 660 | Skinnväskor |
+
+### Important
+
+- If a type code appears in the XML but is **not mapped**, it will be imported 
+  as a raw number (e.g. `650`) and may appear incorrectly in the storefront.
+- The mapping is configured **separately** on each site — changes on one site 
+  do not affect the other.
+- If new product categories are added in the ERP, the corresponding codes must 
+  be added to the mapping in WP All Import on both sites.
+- The ERP export owner is responsible for ensuring type codes are consistent 
+  and correctly named in the XML feed.
+
+
 ## Maintenance
 
 If imports stop working, check:
@@ -140,3 +172,4 @@ If imports stop working, check:
 3. Image files exist
 4. Cron jobs are running at easycron.com (Reset execution logs and statistics can help)
 5. WP All Import logs
+
